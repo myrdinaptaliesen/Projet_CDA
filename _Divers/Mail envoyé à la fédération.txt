@@ -1,0 +1,11 @@
+Bonjour,
+
+Je souhaiterai développer une application mobile permettant de localiser très rapidement toutes les compétitions de la FFC les plus proches de l'endroit où l'on se trouve afin de faciliter les choix des engagements des coureurs et suiveurs.
+
+Etant moi même un ancien coureur sur route et aujourd'hui parent d'un jeune coureur, je me suis aperçu qu'il fallait jonglé entre plusieurs sites pour voir où était la course la plus proche de chez soi.
+
+C'est pour cela que j'aimerai savoir si la fédération possédait des API ou des flux d'informations permettant de récupérer toutes les informations concernant les courses  organisés tous les week end et dans toutes les disciplines.
+
+Bonne journée.
+
+Nicolas Gicquel
