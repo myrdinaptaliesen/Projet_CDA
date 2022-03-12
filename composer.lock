@@ -3575,8 +3575,10 @@
             "time": "2022-01-02T09:55:41+00:00"
         },
         {
+
             "name": "symfony/monolog-bridge",
             "version": "v6.0.3",
+
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/monolog-bridge.git",
@@ -3859,7 +3861,9 @@
                 "password"
             ],
             "support": {
+
                 "source": "https://github.com/symfony/password-hasher/tree/v6.0.3"
+
             },
             "funding": [
                 {
@@ -3878,7 +3882,9 @@
             "time": "2022-01-02T09:55:41+00:00"
         },
         {
+
             "name": "symfony/polyfill-intl-grapheme",
+n
             "version": "v1.25.0",
             "source": {
                 "type": "git",
@@ -3940,7 +3946,9 @@
                 "shim"
             ],
             "support": {
+
                 "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.25.0"
+
             },
             "funding": [
                 {
@@ -4877,8 +4885,10 @@
             "time": "2022-02-21T17:15:17+00:00"
         },
         {
+
             "name": "symfony/security-core",
             "version": "v6.0.5",
+
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-core.git",
@@ -4949,7 +4959,9 @@
             "description": "Symfony Security Component - Core Library",
             "homepage": "https://symfony.com",
             "support": {
+
                 "source": "https://github.com/symfony/security-core/tree/v6.0.5"
+
             },
             "funding": [
                 {
@@ -4970,6 +4982,7 @@
         {
             "name": "symfony/security-csrf",
             "version": "v6.0.3",
+
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-csrf.git",
@@ -5020,7 +5033,9 @@
             "description": "Symfony Security Component - CSRF Library",
             "homepage": "https://symfony.com",
             "support": {
+
                 "source": "https://github.com/symfony/security-csrf/tree/v6.0.3"
+
             },
             "funding": [
                 {
@@ -5039,6 +5054,7 @@
             "time": "2022-01-02T09:55:41+00:00"
         },
         {
+
             "name": "symfony/security-http",
             "version": "v6.0.5",
             "source": {
@@ -5050,6 +5066,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/security-http/zipball/76e8bd64dc472830b890f5e2e1c6cc32aad298f9",
                 "reference": "76e8bd64dc472830b890f5e2e1c6cc32aad298f9",
+
                 "shasum": ""
             },
             "require": {
@@ -5103,7 +5120,9 @@
             "description": "Symfony Security Component - HTTP Integration",
             "homepage": "https://symfony.com",
             "support": {
+
                 "source": "https://github.com/symfony/security-http/tree/v6.0.5"
+
             },
             "funding": [
                 {
@@ -5119,6 +5138,7 @@
                     "type": "tidelift"
                 }
             ],
+
             "time": "2022-02-21T17:15:17+00:00"
         },
         {
@@ -5133,6 +5153,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/service-contracts/zipball/36715ebf9fb9db73db0cb24263c79077c6fe8603",
                 "reference": "36715ebf9fb9db73db0cb24263c79077c6fe8603",
+
                 "shasum": ""
             },
             "require": {
@@ -5185,7 +5206,9 @@
                 "standards"
             ],
             "support": {
+
                 "source": "https://github.com/symfony/service-contracts/tree/v3.0.0"
+
             },
             "funding": [
                 {
@@ -5201,6 +5224,7 @@
                     "type": "tidelift"
                 }
             ],
+
             "time": "2021-11-04T17:53:12+00:00"
         },
         {
@@ -5215,6 +5239,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/stopwatch/zipball/f2c1780607ec6502f2121d9729fd8150a655d337",
                 "reference": "f2c1780607ec6502f2121d9729fd8150a655d337",
+
                 "shasum": ""
             },
             "require": {
@@ -5247,7 +5272,9 @@
             "description": "Provides a way to profile code",
             "homepage": "https://symfony.com",
             "support": {
+
                 "source": "https://github.com/symfony/stopwatch/tree/v6.0.5"
+
             },
             "funding": [
                 {
@@ -5351,6 +5378,7 @@
             "time": "2022-01-02T09:55:41+00:00"
         },
         {
+
             "name": "symfony/translation-contracts",
             "version": "v3.0.0",
             "source": {
@@ -5362,6 +5390,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/1b6ea5a7442af5a12dba3dbd6d71034b5b234e77",
                 "reference": "1b6ea5a7442af5a12dba3dbd6d71034b5b234e77",
+
                 "shasum": ""
             },
             "require": {
@@ -5410,7 +5439,9 @@
                 "standards"
             ],
             "support": {
+
                 "source": "https://github.com/symfony/translation-contracts/tree/v3.0.0"
+
             },
             "funding": [
                 {
@@ -5426,7 +5457,8 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-07T12:43:40+00:00"
+
+            "time": "2022-02-21T17:15:17+00:00"
         },
         {
             "name": "symfony/validator",
@@ -5496,6 +5528,12 @@
             "autoload": {
                 "psr-4": {
                     "Symfony\\Component\\Validator\\": ""
+
+                "files": [
+                    "Resources/functions.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Component\\String\\": ""
                 },
                 "exclude-from-classmap": [
                     "/Tests/"
