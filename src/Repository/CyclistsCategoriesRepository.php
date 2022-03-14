@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\CyclistCategories;
+use App\Entity\CyclistsCategories;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
@@ -14,18 +14,18 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method CyclistCategories[]    findAll()
  * @method CyclistCategories[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CyclistCategoriesRepository extends ServiceEntityRepository
+class CyclistsCategoriesRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, CyclistCategories::class);
+        parent::__construct($registry, CyclistsCategories::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(CyclistCategories $entity, bool $flush = true): void
+    public function add(CyclistsCategories $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -37,7 +37,7 @@ class CyclistCategoriesRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(CyclistCategories $entity, bool $flush = true): void
+    public function remove(CyclistsCategories $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
