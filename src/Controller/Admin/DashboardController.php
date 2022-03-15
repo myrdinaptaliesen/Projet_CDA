@@ -4,8 +4,11 @@ namespace App\Controller\Admin;
 
 use App\Entity\Clubs;
 use App\Entity\Races;
-use App\Controller\Admin\RacesCrudController;
+use App\Entity\Cities;
+use App\Entity\Regions;
+use App\Entity\Departements;
 use App\Entity\CyclistsCategories;
+use App\Controller\Admin\RacesCrudController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -62,6 +65,23 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Créer une catégories', 'fas fa-plus', CyclistsCategories::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Liste des catégories', 'fas fa-eye', CyclistsCategories::class)
+        ]);
+
+        yield MenuItem::section('Localisation','fas fa-biking');
+
+        yield MenuItem::subMenu('Ligues', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Créer une nouvelle ligue', 'fas fa-plus', Regions::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Liste des ligues', 'fas fa-eye', Regions::class)
+        ]);
+
+        yield MenuItem::subMenu('Comités', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Créer un nouveau comité', 'fas fa-plus', Departements::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Liste des comités', 'fas fa-eye', Departements::class)
+        ]);
+
+        yield MenuItem::subMenu('Villes', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Créer une nouvelle ville', 'fas fa-plus', Cities::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Liste des villes', 'fas fa-eye', Cities::class)
         ]);
 
         

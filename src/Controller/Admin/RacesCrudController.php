@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Races;
+use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
@@ -32,13 +33,22 @@ class RacesCrudController extends AbstractCrudController
             MoneyField::new('commitmentFeeRace', 'Prix d\'engagement')
                 ->setCurrency('EUR'),
             AssociationField::new('city','Ville'),
-            AssociationField::new('club','Club organisateur')
-            ->autocomplete(),
-            AssociationField::new('cyclistsCategories','Catégorie')
-            ->autocomplete(),
+            AssociationField::new('club','Club organisateur'),
+            AssociationField::new('cyclistsCategories','Catégorie'),
             DateTimeField::new('updatedAt')->hideOnForm(),
             DateTimeField::new('createdAt')->hideOnForm(),
 
         ];
     }
+
+    public function persistEntity(EntityManagerInterface $em, $entityInstance): void
+    {
+        if (!$entityInstance instanceof Races) return;
+
+        $entityInstance->setCreatedAt(new \DateTimeImmutable);
+
+        parent::persistEntity($em, $entityInstance);
+    }
+
+    
 }

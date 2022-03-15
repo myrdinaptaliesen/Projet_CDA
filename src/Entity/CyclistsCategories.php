@@ -69,4 +69,9 @@ class CyclistsCategories
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->nameCylistsCategory;
+    }
 }
