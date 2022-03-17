@@ -102,4 +102,9 @@ class Departements
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return "$this->nameDepartement ($this->codeDepartement)";
+    }
 }

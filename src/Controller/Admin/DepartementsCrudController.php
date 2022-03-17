@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Departements;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class DepartementsCrudController extends AbstractCrudController
@@ -19,6 +20,7 @@ class DepartementsCrudController extends AbstractCrudController
         return [
             TextField::new('codeDepartement','Code du département'),
             TextField::new('nameDepartement', 'Nom du département'),
+            AssociationField::new('region','Région'),
         ];
     }
     
