@@ -2,30 +2,30 @@
 
 namespace App\Repository;
 
-use App\Entity\CyclistCategories;
+use App\Entity\Disciplines;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method CyclistCategories|null find($id, $lockMode = null, $lockVersion = null)
- * @method CyclistCategories|null findOneBy(array $criteria, array $orderBy = null)
- * @method CyclistCategories[]    findAll()
- * @method CyclistCategories[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Disciplines|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Disciplines|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Disciplines[]    findAll()
+ * @method Disciplines[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CyclistCategoriesRepository extends ServiceEntityRepository
+class DisciplinesRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, CyclistCategories::class);
+        parent::__construct($registry, Disciplines::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(CyclistCategories $entity, bool $flush = true): void
+    public function add(Disciplines $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -37,7 +37,7 @@ class CyclistCategoriesRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(CyclistCategories $entity, bool $flush = true): void
+    public function remove(Disciplines $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -46,15 +46,15 @@ class CyclistCategoriesRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return CyclistCategories[] Returns an array of CyclistCategories objects
+    //  * @return Disciplines[] Returns an array of Disciplines objects
     //  */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
+        return $this->createQueryBuilder('d')
+            ->andWhere('d.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
+            ->orderBy('d.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -63,10 +63,10 @@ class CyclistCategoriesRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?CyclistCategories
+    public function findOneBySomeField($value): ?Disciplines
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
+        return $this->createQueryBuilder('d')
+            ->andWhere('d.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

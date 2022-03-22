@@ -15,7 +15,7 @@ class Races
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'date')]
+    #[ORM\Column(type: 'datetime_immutable')]
     private $startDateRace;
 
     #[ORM\Column(type: 'date')]
@@ -24,7 +24,7 @@ class Races
     #[ORM\Column(type: 'string', length: 255)]
     private $distanceRace;
 
-    #[ORM\Column(type: 'float')]
+    #[ORM\Column(type: 'float', nullable:true)]
     private $distanceCircuit;
 
     #[ORM\Column(type: 'float')]
@@ -33,24 +33,41 @@ class Races
     #[ORM\Column(type: 'datetime_immutable')]
     private $createdAt;
 
-    #[ORM\Column(type: 'datetime_immutable')]
+    #[ORM\Column(type: 'datetime_immutable',nullable:true)]
     private $updatedAt;
 
-    #[ORM\OneToMany(mappedBy: 'race', targetEntity: Documents::class)]
-    private $documents;
-
     #[ORM\ManyToOne(targetEntity: Cities::class, inversedBy: 'races')]
+    #[ORM\JoinColumn(nullable:false)]
     private $city;
 
     #[ORM\ManyToOne(targetEntity: Clubs::class, inversedBy: 'races')]
+    #[ORM\JoinColumn(nullable:false)]
     private $club;
 
     #[ORM\ManyToMany(targetEntity: CyclistsCategories::class, inversedBy: 'races')]
+    #[ORM\InverseJoinColumn(nullable:false)]
+    #[ORM\JoinColumn(nullable:false)]
     private $cyclistsCategories;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $departureAdress;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $organizationalDetails;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $titleRace;
+
+    #[ORM\ManyToOne(targetEntity: Disciplines::class, inversedBy: 'races')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $discipline;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $informationsRace;
+
 
     public function __construct()
     {
-        $this->documents = new ArrayCollection();
         $this->cyclistsCategories = new ArrayCollection();
     }
 
@@ -146,32 +163,7 @@ class Races
     /**
      * @return Collection<int, Documents>
      */
-    public function getDocuments(): Collection
-    {
-        return $this->documents;
-    }
-
-    public function addDocument(Documents $document): self
-    {
-        if (!$this->documents->contains($document)) {
-            $this->documents[] = $document;
-            $document->setRace($this);
-        }
-
-        return $this;
-    }
-
-    public function removeDocument(Documents $document): self
-    {
-        if ($this->documents->removeElement($document)) {
-            // set the owning side to null (unless already changed)
-            if ($document->getRace() === $this) {
-                $document->setRace(null);
-            }
-        }
-
-        return $this;
-    }
+    
 
     public function getCity(): ?Cities
     {
@@ -220,4 +212,66 @@ class Races
 
         return $this;
     }
+
+    public function getDepartureAdress(): ?string
+    {
+        return $this->departureAdress;
+    }
+
+    public function setDepartureAdress(string $departureAdress): self
+    {
+        $this->departureAdress = $departureAdress;
+
+        return $this;
+    }
+
+    public function getOrganizationalDetails(): ?string
+    {
+        return $this->organizationalDetails;
+    }
+
+    public function setOrganizationalDetails(?string $organizationalDetails): self
+    {
+        $this->organizationalDetails = $organizationalDetails;
+
+        return $this;
+    }
+
+    public function getTitleRace(): ?string
+    {
+        return $this->titleRace;
+    }
+
+    public function setTitleRace(string $titleRace): self
+    {
+        $this->titleRace = $titleRace;
+
+        return $this;
+    }
+
+    public function getDiscipline(): ?Disciplines
+    {
+        return $this->discipline;
+    }
+
+    public function setDiscipline(?Disciplines $discipline): self
+    {
+        $this->discipline = $discipline;
+
+        return $this;
+    }
+
+    public function getInformationsRace(): ?string
+    {
+        return $this->informationsRace;
+    }
+
+    public function setInformationsRace(?string $informationsRace): self
+    {
+        $this->informationsRace = $informationsRace;
+
+        return $this;
+    }
+
+    
 }

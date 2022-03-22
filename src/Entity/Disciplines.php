@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\CyclistsCategoriesRepository;
+use App\Repository\DisciplinesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: CyclistsCategoriesRepository::class)]
-class CyclistsCategories
+#[ORM\Entity(repositoryClass: DisciplinesRepository::class)]
+class Disciplines
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -16,9 +16,9 @@ class CyclistsCategories
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $nameCylistsCategory;
+    private $nameDiscipline;
 
-    #[ORM\ManyToMany(targetEntity: Races::class, mappedBy: 'cyclistsCategories')]
+    #[ORM\OneToMany(mappedBy: 'discipline', targetEntity: Races::class)]
     private $races;
 
     public function __construct()
@@ -31,14 +31,14 @@ class CyclistsCategories
         return $this->id;
     }
 
-    public function getNameCylistsCategory(): ?string
+    public function getNameDiscipline(): ?string
     {
-        return $this->nameCylistsCategory;
+        return $this->nameDiscipline;
     }
 
-    public function setNameCylistsCategory(string $nameCylistsCategory): self
+    public function setNameDiscipline(string $nameDiscipline): self
     {
-        $this->nameCylistsCategory = $nameCylistsCategory;
+        $this->nameDiscipline = $nameDiscipline;
 
         return $this;
     }
@@ -55,7 +55,7 @@ class CyclistsCategories
     {
         if (!$this->races->contains($race)) {
             $this->races[] = $race;
-            $race->addCyclistsCategory($this);
+            $race->setDiscipline($this);
         }
 
         return $this;
@@ -64,7 +64,10 @@ class CyclistsCategories
     public function removeRace(Races $race): self
     {
         if ($this->races->removeElement($race)) {
-            $race->removeCyclistsCategory($this);
+            // set the owning side to null (unless already changed)
+            if ($race->getDiscipline() === $this) {
+                $race->setDiscipline(null);
+            }
         }
 
         return $this;
@@ -72,6 +75,6 @@ class CyclistsCategories
 
     public function __toString()
     {
-        return $this->nameCylistsCategory;
+        return $this->nameDiscipline;
     }
 }
