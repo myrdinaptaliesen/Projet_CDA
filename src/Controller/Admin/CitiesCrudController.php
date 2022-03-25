@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Cities;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -24,6 +25,16 @@ class CitiesCrudController extends AbstractCrudController
             TextField::new('lonCity','Longitude de la ville'),
             AssociationField::new('departement','Département'),
         ];
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->overrideTemplate('crud/new', 'cities/new.html.twig')
+            ->overrideTemplate('crud/index', 'cities/index.html.twig')
+            ->overrideTemplate('crud/edit', 'cities/edit.html.twig')
+
+        ;
     }
     
 }
