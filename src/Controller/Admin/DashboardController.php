@@ -45,7 +45,7 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToDashboard('Tableau de bord', 'fa fa-home');
 
         yield MenuItem::section('Clubs', 'fas fa-users');
 
@@ -72,14 +72,14 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::section('Localisation', 'fas fa-map-marker-alt');
 
-        yield MenuItem::subMenu('Ligues', 'fas fa-bars')->setSubItems([
-            MenuItem::linkToCrud('Créer une nouvelle ligue', 'fas fa-plus', Regions::class)->setAction(Crud::PAGE_NEW),
-            MenuItem::linkToCrud('Liste des ligues', 'fas fa-eye', Regions::class)
+        yield MenuItem::subMenu('Régions', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Créer une nouvelle région', 'fas fa-plus', Regions::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Liste des region', 'fas fa-eye', Regions::class)
         ]);
 
-        yield MenuItem::subMenu('Comités', 'fas fa-bars')->setSubItems([
-            MenuItem::linkToCrud('Créer un nouveau comité', 'fas fa-plus', Departements::class)->setAction(Crud::PAGE_NEW),
-            MenuItem::linkToCrud('Liste des comités', 'fas fa-eye', Departements::class)
+        yield MenuItem::subMenu('Départements', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Créer un nouveau département', 'fas fa-plus', Departements::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Liste des départements', 'fas fa-eye', Departements::class)
         ]);
 
         yield MenuItem::subMenu('Villes', 'fas fa-bars')->setSubItems([
