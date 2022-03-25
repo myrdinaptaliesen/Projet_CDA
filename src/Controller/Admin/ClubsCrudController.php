@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Clubs;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -25,6 +26,16 @@ class ClubsCrudController extends AbstractCrudController
                 ->setBasePath('uploads\logosClubs')
                 ->setUploadDir('public\uploads\logosClubs'),
         ];
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->overrideTemplate('crud/new', 'clubs/new.html.twig')
+            ->overrideTemplate('crud/index', 'clubs/index.html.twig')
+            ->overrideTemplate('crud/edit', 'clubs/edit.html.twig')
+
+        ;
     }
     
 }
