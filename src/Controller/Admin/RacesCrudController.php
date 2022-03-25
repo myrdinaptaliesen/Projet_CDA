@@ -6,6 +6,7 @@ use App\Entity\Races;
 
 use App\Form\DocumentsFormType;
 use Doctrine\ORM\EntityManagerInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use App\Controller\Admin\DocumentsCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\UrlField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
@@ -64,5 +65,15 @@ class RacesCrudController extends AbstractCrudController
         $entityInstance->setCreatedAt(new \DateTimeImmutable);
 
         parent::persistEntity($em, $entityInstance);
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->overrideTemplate('crud/new', 'races/new.html.twig')
+            ->overrideTemplate('crud/index', 'races/index.html.twig')
+            ->overrideTemplate('crud/edit', 'races/edit.html.twig')
+
+        ;
     }
 }
